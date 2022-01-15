@@ -1,7 +1,5 @@
 public class LinkedList {
 
-    // class flied
-    private int size;
     private Muppet start;
 
 
@@ -20,7 +18,7 @@ public class LinkedList {
 
 
         for(int i=0;i< size();i++){
-         System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",m.getNaam(),m.getLeeftijd())); // Loop het lijst door langs alle noden en printen de gegevens uit
+         System.out.println(m); // Loop het lijst door langs alle noden en printen de gegevens uit
          m = m.next;
         }
      }
@@ -68,8 +66,7 @@ public class LinkedList {
             moppie = start;
            // System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
             start = n.next;
-            
-            return moppie;
+
         }
         else
             {
@@ -80,13 +77,14 @@ public class LinkedList {
                 if(n == null || n.next == null){
                     System.err.println("moppet not found");
                 }
+                assert n != null;
                 Muppet m = n.next.next;
                 moppie = n.next;
               //  System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
                 
                 n.next = m;
-                return moppie;
-        }
+            }
+        return moppie;
     }
 
     public Muppet pop(String s){
@@ -96,17 +94,16 @@ public class LinkedList {
         Muppet m = null;
         Muppet moppie;
         
-        if ( n != null && n.getNaam() == s ){
+        if ( n != null && n.getNaam().equals(s)){
 
             moppie = start;
-            System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
+            System.out.println(moppie);
             start = n.next;
-            
-            return moppie;
+
         }
         else
             {
-                while (n != null && n.getNaam() != s)
+                while (n != null && !n.getNaam().equals(s))
                 {
                     m = n;
                     n = n.next;
@@ -114,12 +111,14 @@ public class LinkedList {
                 if(n == null ){
                     System.err.println("moppet not found");
                 }
+                assert m != null;
+                assert n != null;
                 m.next = n.next;
                 moppie = n;
-                System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
-                
-                return moppie;
-        }
+                System.out.println(moppie);
+
+            }
+        return moppie;
     }
     public Muppet peek(String s){
 
@@ -127,14 +126,12 @@ public class LinkedList {
         Muppet n = start;
         Muppet moppie;
         
-        if ( n != null && n.getNaam() == s ){
+        if ( n != null && n.getNaam().equals(s)){
             moppie = start;
-            System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
-            return moppie;
         }
         else
             {
-                while (n != null && n.getNaam() != s)
+                while (n != null && !n.getNaam().equals(s))
                 {
                     n = n.next;
                 }  
@@ -142,10 +139,10 @@ public class LinkedList {
                     System.err.println("moppet not found");
                 }
                 moppie = n;
-                System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
-                
-                return moppie;
-        }
+
+            }
+        System.out.println(moppie);
+        return moppie;
     }
   
     public Muppet peek(int p){
@@ -160,8 +157,6 @@ public class LinkedList {
         
         if ( p == 0 ){
             moppie = start;
-            System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd())); 
-            return moppie;
         }
         else
             {
@@ -172,15 +167,17 @@ public class LinkedList {
                 if(n == null || n.next == null){
                     System.err.println("muppet not found");
                 }
+                assert n != null;
                 moppie = n.next;
-                System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
-                return moppie;
-        }
+            }
+        System.out.println(moppie);
+        return moppie;
     }
 
     public int size() {
         Muppet m = start;
-        size= 0;
+        // class flied
+        int size = 0;
         while(m != null)
             {
                 size++;

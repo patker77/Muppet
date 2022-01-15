@@ -1,35 +1,33 @@
 public class Queue {
-    
-    
-      // class flied
-      private int size;
+
+
       private Muppet start = null;
       private Muppet back = null;
 
        // class methods
-      public void print() {
+
+    public void print() {
         Muppet m = start;
         if(start == null){
             System.err.println("Queue is empty");
             return;
         }
         for(int i=0;i< size();i++){
-         System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",m.getNaam(),m.getLeeftijd()));
+         System.out.println(m);
          m = m.next;
         }
      }
 
       public void push(Muppet m) {
-          Muppet n = m;
-        if(n == null){
+          if(m == null){
             System.err.println(" can't add to list");
         }else{
-            n.next = null;
+            m.next = null;
             if(start == null){
-                start = back = n;
+                start = back = m;
             }else{
-                back.next = n;
-                back = n;
+                back.next = m;
+                back = m;
             }
         }
     }
@@ -55,7 +53,8 @@ public class Queue {
 
     public int size() {
         Muppet m = start;
-        size= 0;
+        // class flied
+        int size = 0;
         while(m != null)
             {
                 size++;

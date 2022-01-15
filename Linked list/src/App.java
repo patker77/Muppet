@@ -1,5 +1,5 @@
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Muppet muppet1 = new Muppet("Animal", 9);
         Muppet muppet2 = new Muppet("Beaker", 4);
         Muppet muppet3 = new Muppet("Gonzo", 21);
@@ -22,7 +22,7 @@ public class App {
 
     
         System.out.println("=====================");
-        System.err.println("     LINKEDLIST");
+        System.out.println("     LINKEDLIST");
         System.out.println("=====================");
         
         for (int i = list.size()-1; i>=0;i--){
@@ -31,7 +31,7 @@ public class App {
          list.print();
          System.out.println(list.size());
         System.out.println("---------------------");
-        System.err.println("        STACK");
+        System.out.println("        STACK");
         System.out.println("---------------------");
         
         stack_list.push(muppet4);stack_list.push(muppet5);stack_list.push(muppet1);
@@ -45,7 +45,7 @@ public class App {
          stack_list.print();
          System.out.println(stack_list.size());
          System.out.println("=====================");
-         System.err.println("     LINKEDLIST");
+         System.out.println("     LINKEDLIST");
          System.out.println("=====================");
          list.print();
          System.out.println(list.size());
@@ -56,7 +56,7 @@ public class App {
           list.print();
         System.out.println(list.size());
         System.out.println("---------------------");
-        System.err.println("      QUEUE");
+        System.out.println("      QUEUE");
         System.out.println("---------------------");
         queue_list.push(muppet3);queue_list.push(muppet5);queue_list.push(muppet1);
         queue_list.print();   
@@ -71,7 +71,7 @@ public class App {
 
 
         System.out.println("=====================");
-        System.err.println("     LINKEDLIST");
+        System.out.println("     LINKEDLIST");
         System.out.println("=====================");
          list.print();
         System.out.println(list.size());

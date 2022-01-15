@@ -1,13 +1,12 @@
 public class Muppet {
     private String naam;
     private int leeftijd;
-    public Muppet next;
+    public Muppet next = null;
     
 
     public Muppet(String naam, int leeftijd) {
         this.naam = naam;
         this.leeftijd = leeftijd;
-        this.next = null;
     }
     
     public String getNaam() {
@@ -23,10 +22,11 @@ public class Muppet {
         this.naam = naam;
     }
 
-    public void print() {
-        System.out.println(String.format("Naam: %s\n Leeftijd: %d\n",getNaam(),getLeeftijd()));
-    
+    @Override
+    public String toString() {
+        return "Muppet{" +
+                "naam='" + naam + '\'' +
+                ", leeftijd=" + leeftijd +
+                '}';
     }
-
-    
 }
