@@ -6,20 +6,32 @@ public class LinkedList {
 
 
     // class methods
+
+    /*
+        Methode om een puppet in de array te pushen door de muppet en een index te geven
+    */
     public void print() {
         Muppet m = start;
+        
         if(start == null){
-            System.err.println("Linkedlist is empty");
+            System.err.println("Linkedlist is empty");  //Check als de start node gelijk aan null is / leeg
             return;
         }
+
+
         for(int i=0;i< size();i++){
-         System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",m.getNaam(),m.getLeeftijd()));
+         System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",m.getNaam(),m.getLeeftijd())); // Loop het lijst door langs alle noden en printen de gegevens uit
          m = m.next;
         }
      }
+
+     /*
+        Methode om een puppet in de array te pushen door de muppet en een index te geven
+     */
     public void push(Muppet m, int p) {
+        
         if ( p < 0 || p > size()){
-            System.err.println("invalide position");
+            System.err.println("invalide position");    // check voor valide index
             return;
         }
         Muppet n =start;
@@ -38,6 +50,10 @@ public class LinkedList {
            n.next = m;
         }
     }
+
+     /*
+        Methode om een puppet van de lijst te verwijderen door een index te geven
+     */
     public Muppet pop(int p){
 
         if ( p < 0 || p >= size()){

@@ -2,6 +2,7 @@ public class Muppet {
     private String naam;
     private int leeftijd;
     public Muppet next;
+    
 
     public Muppet(String naam, int leeftijd) {
         this.naam = naam;

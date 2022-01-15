@@ -17,7 +17,7 @@ public class Stack {
          m = m.next;
         }
      }
-     //}
+     
 
       public void push(Muppet m) {
         
