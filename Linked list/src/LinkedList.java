@@ -15,8 +15,6 @@ public class LinkedList {
             System.err.println("Linkedlist is empty");  //Check als de start node gelijk aan null is / leeg
             return;
         }
-
-
         for(int i=0;i< size();i++){
          System.out.println(m); // Loop het lijst door langs alle noden en printen de gegevens uit
          m = m.next;
@@ -64,7 +62,6 @@ public class LinkedList {
         
         if ( p == 0 ){
             moppie = start;
-           // System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
             start = n.next;
 
         }
@@ -80,15 +77,12 @@ public class LinkedList {
                 assert n != null;
                 Muppet m = n.next.next;
                 moppie = n.next;
-              //  System.out.println(String.format("Naam: %s\nLeeftijd: %d\n",moppie.getNaam(),moppie.getLeeftijd()));
-                
                 n.next = m;
             }
         return moppie;
     }
 
     public Muppet pop(String s){
-
 
         Muppet n = start;
         Muppet m = null;

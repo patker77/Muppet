@@ -1,4 +1,4 @@
-public class Queue {
+public class Queue implements IMijnLijst {
 
 
       private Muppet start = null;
@@ -6,6 +6,7 @@ public class Queue {
 
        // class methods
 
+    @Override
     public void print() {
         Muppet m = start;
         if(start == null){
@@ -18,6 +19,7 @@ public class Queue {
         }
      }
 
+     @Override
       public void push(Muppet m) {
           if(m == null){
             System.err.println(" can't add to list");
@@ -32,6 +34,7 @@ public class Queue {
         }
     }
 
+    @Override
     public Muppet pop() {
 
         Muppet moppie= null;
@@ -42,15 +45,16 @@ public class Queue {
             return moppie;
         }
         else{
-          
+
             System.err.println("Queue is leeg");
-            
+
         }
      return moppie;
     }
 
 
 
+    @Override
     public int size() {
         Muppet m = start;
         // class flied
@@ -61,6 +65,6 @@ public class Queue {
                 m = m.next;
             }
         return size;
-        
-    } 
+
+    }
 }

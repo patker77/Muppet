@@ -1,4 +1,4 @@
-public class Stack {
+public class Stack implements IMijnLijst {
     
 
       // class flied
@@ -6,6 +6,8 @@ public class Stack {
       private Muppet start;
 
        // class methods
+
+    @Override
        public void print() {
         Muppet m = start;
         if(start == null){
@@ -18,8 +20,9 @@ public class Stack {
          m = m.next;
         }
      }
-     
 
+
+     @Override
       public void push(Muppet m) {
         
         if(m == null){
@@ -30,6 +33,7 @@ public class Stack {
         }
     }
 
+    @Override
     public Muppet pop() {
 
         Muppet moppie= null;
@@ -49,6 +53,7 @@ public class Stack {
 
 
 
+    @Override
     public int size() {
         Muppet m = start;
         size= 0;

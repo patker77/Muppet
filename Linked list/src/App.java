@@ -7,9 +7,8 @@ public class App {
         Muppet muppet5 = new Muppet("Miss Piggy", 16);
         Muppet muppet6 = new Muppet("Swedish Chef", 7);
         LinkedList list = new LinkedList();
-        Stack stack_list = new Stack();
-        Queue queue_list = new Queue();
-        
+        IMijnLijst lijst;
+        lijst = new Stack();
         list.push(muppet1,0);
         list.push(muppet2,1);
         list.push(muppet3,2);
@@ -34,16 +33,18 @@ public class App {
         System.out.println("        STACK");
         System.out.println("---------------------");
         
-        stack_list.push(muppet4);stack_list.push(muppet5);stack_list.push(muppet1);
-        stack_list.print();
-        System.out.println(stack_list.size());
-         for (int i = stack_list.size()-1; i>=0;i--){
-             Muppet x = stack_list.pop();
+        lijst.push(muppet4);
+        lijst.push(muppet5);
+        lijst.push(muppet1);
+        lijst.print();
+        System.out.println(lijst.size());
+         for (int i = lijst.size()-1; i>=0;i--){
+             Muppet x = lijst.pop();
             list.push(x, 0);
          }
         System.out.println("=====================");
-         stack_list.print();
-         System.out.println(stack_list.size());
+         lijst.print();
+         System.out.println(lijst.size());
          System.out.println("=====================");
          System.out.println("     LINKEDLIST");
          System.out.println("=====================");
@@ -58,16 +59,20 @@ public class App {
         System.out.println("---------------------");
         System.out.println("      QUEUE");
         System.out.println("---------------------");
-        queue_list.push(muppet3);queue_list.push(muppet5);queue_list.push(muppet1);
-        queue_list.print();   
-        System.out.println(queue_list.size());    
+
+        lijst = new Queue();
+        lijst.push(muppet3);
+        lijst.push(muppet5);
+        lijst.push(muppet1);
+        lijst.print();
+        System.out.println(lijst.size());
         
-        for (int i = queue_list.size()-1; i>=0;i--){
-            Muppet x = queue_list.pop();
+        for (int i = lijst.size()-1; i>=0;i--){
+            Muppet x = lijst.pop();
            list.push(x, 0);
         }
-        queue_list.print();
-        System.out.println(queue_list.size());  
+        lijst.print();
+        System.out.println(lijst.size());
 
 
         System.out.println("=====================");
