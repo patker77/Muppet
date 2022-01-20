@@ -1,66 +1,69 @@
 public class Stack implements IMijnLijst {
-    
 
-      // class flied
-      private int size;
-      private Muppet start;
+
+    private Muppet start;
 
        // class methods
 
     @Override
        public void print() {
-        Muppet m = start;
-        if(start == null){
-            System.err.println("stack is empty");
+        //Check als list leeg is
+        Muppet muppet = this.start;
+        if(this.start == null){
+            System.out.println("stack is empty");
             return;
         }
-
-        for(int i=0;i< size();i++){
-         System.out.println(m);
-         m = m.next;
+        System.out.println("=====================");
+        System.out.println("        STACK");
+        System.out.println("=====================");
+        // loop door de list heen en print muppet uit
+        for(int i=0;i< this.size();i++){
+         System.out.println(muppet);
+         muppet = muppet.next;
         }
+        System.out.println(this.size());
      }
 
 
      @Override
       public void push(Muppet m) {
-        
+         //Voeg het muppet aan het begint van de list toe als eerste element
         if(m == null){
             System.err.println(" can't add to list");
         }else{
-            m.next = start;
-            start = m;
+            m.next = this.start;
+            this.start = m;
         }
     }
 
     @Override
     public Muppet pop() {
 
-        Muppet moppie= null;
-
-        if(start != null){
-            moppie = start;
-            start = start.next;
-            return moppie;
+        Muppet muppet = null;
+        // Verwijderd het eerste element van de list
+        if(this.start != null){
+            muppet = this.start;
+            this.start = this.start.next;
         }
         else{
           
             System.err.println("stack is leeg");
             
         }
-     return moppie;
+     return muppet;
     }
 
 
 
     @Override
     public int size() {
-        Muppet m = start;
-        size= 0;
-        while(m != null)
+        Muppet muppet = this.start;
+
+        int size = 0;
+        while(muppet != null)
             {
                 size++;
-                m = m.next;
+                muppet = muppet.next;
             }
         return size;
         

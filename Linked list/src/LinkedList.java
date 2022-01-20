@@ -5,180 +5,211 @@ public class LinkedList {
 
     // class methods
 
-    /*
-        Methode om een puppet in de array te pushen door de muppet en een index te geven
-    */
+    /**
+     * Methode om alle elementen in de linkedlist te printen
+     */
     public void print() {
-        Muppet m = start;
-        
-        if(start == null){
-            System.err.println("Linkedlist is empty");  //Check als de start node gelijk aan null is / leeg
-            return;
+        Muppet muppet = this.start;
+        //Check als list leeg is
+        if(muppet == null){
+            System.out.println("Linkedlist is leeg");
+        }else {
+            System.out.println("=====================");
+            System.out.println("     LINKEDLIST");
+            System.out.println("=====================");
+            // loop door de list heen en print muppet uit
+            for (int i = 0; i < this.size(); i++) {
+                System.out.println(muppet);
+                muppet = muppet.next;
+            }
+            System.out.println(this.size());
         }
-        for(int i=0;i< size();i++){
-         System.out.println(m); // Loop het lijst door langs alle noden en printen de gegevens uit
-         m = m.next;
-        }
+
      }
 
-     /*
-        Methode om een puppet in de array te pushen door de muppet en een index te geven
+     /**
+      * Methode om een Muppet in een linkedlist toevoegen door de muppet en een index te geven
+      * @param m muppet om toegevoegd te worden
+      * @param p positie waar de muppet toegevoegd dient te worden
      */
     public void push(Muppet m, int p) {
-        
-        if ( p < 0 || p > size()){
-            System.err.println("invalide position");    // check voor valide index
-            return;
-        }
-        Muppet n =start;
-        if ( p == 0 ){
-            m.next = start;
-            start = m;
-        }
-        else
-        {
-           for ( int i = 0; i<p-1;i++)
-           {
-                 n= n.next;
-           } 
-           
-           m.next = n.next;
-           n.next = m;
+
+
+        // check voor valide index
+        if ( p < 0 || p > this.size()){
+            System.err.println("invalide position");
+        }else {
+
+            /*
+             * push het muppet op de eerste positie van de list
+             * door de muppet te pointen naar de start en de start de muppet gelijk te maken aan het muppet
+             *  */
+            if (p == 0) {
+                m.next = this.start;
+                this.start = m;
+            } else {
+                Muppet temp = this.start;
+                //loop door de list heen tot een muppet voor de gewenste positie en voeg de muppet toe als de next muppet
+                for (int i = 0; i < p - 1; i++) {
+                    temp = temp.next;
+                }
+
+                m.next = temp.next;
+                temp.next = m;
+            }
         }
     }
 
-     /*
-        Methode om een puppet van de lijst te verwijderen door een index te geven
+    /**
+     * Methode om een Muppet uit een linkedlist te verwijderen door een index te geven
+     * @param p positie waar de muppet verwijderd dient te worden
      */
     public Muppet pop(int p){
 
-        if ( p < 0 || p >= size()){
+        Muppet temp = this.start;
+        Muppet muppet = null;
+
+        // check voor valide index
+        if ( p < 0 || p >= this.size()){
             System.err.println("invalide position");
-            return start;
-        }
+        }else {
 
-        Muppet n = start;
-        Muppet moppie ;
-        
-        if ( p == 0 ){
-            moppie = start;
-            start = n.next;
+            //verwijderd eerste muppet uit de list als de index 0 is door de start te point naar de next muppet
+            if (p == 0) {
+                muppet = this.start;
+                this.start = temp.next;
 
-        }
-        else
-            {
-                for ( int i = 0;n != null && i<p-1;i++)
-                {
-                      n = n.next;
-                }  
-                if(n == null || n.next == null){
-                    System.err.println("moppet not found");
+            } else {
+                /*
+                 * loop door de list heen tot een muppet voor de gewenste positie en
+                 *point de next muppet op de next van de te verwijderen muppet
+                 */
+                for (int i = 0; temp != null && i < p - 1; i++) {
+                    temp = temp.next;
                 }
-                assert n != null;
-                Muppet m = n.next.next;
-                moppie = n.next;
-                n.next = m;
+                if (temp == null || temp.next == null) {
+                    System.err.println("moppet not found");
+                } else {
+                    muppet = temp.next;
+                    temp.next = temp.next.next;
+                }
             }
-        return moppie;
+        }
+        return muppet;
     }
 
+    /**
+     * Methode om een Muppet uit een linkedlist te verwijderen door een naam te geven
+     * @param s naam van de muppet die verwijderd dient te worden
+     */
     public Muppet pop(String s){
 
-        Muppet n = start;
-        Muppet m = null;
-        Muppet moppie;
+        Muppet muppet = this.start;
+        Muppet next = null;
         
-        if ( n != null && n.getNaam().equals(s)){
+        if ( muppet != null && muppet.getNaam().equals(s)){
 
-            moppie = start;
-            System.out.println(moppie);
-            start = n.next;
-
+            //System.out.println(muppet);
+            this.start = muppet.next;
         }
         else
             {
-                while (n != null && !n.getNaam().equals(s))
+                while (muppet != null && !muppet.getNaam().equals(s))
                 {
-                    m = n;
-                    n = n.next;
-                }  
-                if(n == null ){
-                    System.err.println("moppet not found");
+                    next = muppet;
+                    muppet = muppet.next;
+
                 }
-                assert m != null;
-                assert n != null;
-                m.next = n.next;
-                moppie = n;
-                System.out.println(moppie);
+                if(muppet == null || next == null){
+                    System.err.println("moppet not found");
+                }else {
+                    next.next = muppet.next;
+                    //System.out.println(mZ);
+
+                }
 
             }
-        return moppie;
+        return muppet;
     }
+    /**
+     * Methode om een Muppet uit een linkedlist te bekijken door een naam te geven
+     * @param s naam van de muppet bekeken dient te worden
+     */
     public Muppet peek(String s){
 
 
-        Muppet n = start;
-        Muppet moppie;
+        Muppet temp = this.start;
+        Muppet muppet = null;
         
-        if ( n != null && n.getNaam().equals(s)){
-            moppie = start;
+        if ( temp != null && temp.getNaam().equals(s)){
+            muppet = this.start;
         }
         else
             {
-                while (n != null && !n.getNaam().equals(s))
+                while (temp != null && !temp.getNaam().equals(s))
                 {
-                    n = n.next;
+                    temp = temp.next;
                 }  
-                if(n == null ){
+                if(temp == null ) {
                     System.err.println("moppet not found");
+                }else {
+                    muppet = temp;
+                    System.out.println(muppet);
                 }
-                moppie = n;
 
             }
-        System.out.println(moppie);
-        return moppie;
+
+        return muppet;
     }
-  
+
+    /**
+     * Methode om een Muppet uit een linkedlist te bekijken door een index te geven
+     * @param p positie waar de muppet bekeken dient te worden
+     */
     public Muppet peek(int p){
 
-        if ( p < 0 || p >= size()){
+        if ( p < 0 || p >= this.size()){
             System.err.println("invalide position");
-            return start;
+            return this.start;
         }
 
-        Muppet n = start;
-        Muppet moppie ;
-        
+        Muppet temp = this.start;
+        Muppet muppet = null;
+
         if ( p == 0 ){
-            moppie = start;
+            muppet = this.start;
         }
         else
             {
-                for ( int i = 0;n != null && i<p-1;i++)
+                for ( int i = 0;temp != null && i<p-1;i++)
                 {
-                      n = n.next;
-                }  
-                if(n == null || n.next == null){
-                    System.err.println("muppet not found");
+                      temp = temp.next;
                 }
-                assert n != null;
-                moppie = n.next;
+                if(temp == null || temp.next == null){
+                    System.err.println("muppet not found");
+                }else {
+                    //assert temp != null;
+                    muppet = temp.next;
+                }
+                
             }
-        System.out.println(moppie);
-        return moppie;
+        System.out.println(muppet);
+        return muppet;
     }
 
+    /**
+     * Methode om de size van de linkedlist te weten
+     */
     public int size() {
-        Muppet m = start;
-        // class flied
+        Muppet muppet = this.start;
         int size = 0;
-        while(m != null)
+        while(muppet != null)
             {
                 size++;
-                m = m.next;
+                muppet = muppet.next;
             }
         return size;
-        
+
     }
 
 }

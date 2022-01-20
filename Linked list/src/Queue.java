@@ -8,26 +8,36 @@ public class Queue implements IMijnLijst {
 
     @Override
     public void print() {
-        Muppet m = start;
-        if(start == null){
-            System.err.println("Queue is empty");
+        //Check als list leeg is
+        Muppet muppet = this.start;
+        if(this.start == null){
+            System.out.println("Queue is empty");
             return;
         }
-        for(int i=0;i< size();i++){
-         System.out.println(m);
-         m = m.next;
+        System.out.println("=====================");
+        System.out.println("        QUEUE");
+        System.out.println("=====================");
+        // loop door de list heen en print muppet uit
+        for(int i=0;i< this.size();i++){
+         System.out.println(muppet);
+         muppet = muppet.next;
         }
+        System.out.println(this.size());
      }
 
-     @Override
+//
+    @Override
+
       public void push(Muppet m) {
           if(m == null){
             System.err.println(" can't add to list");
         }else{
+              //Voeg het muppet aan het als eerste element toe zodra het list leeg is
             m.next = null;
-            if(start == null){
-                start = back = m;
+            if(this.start == null){
+                this.start = back = m;
             }else{
+                // Voeg het Muppet als laste element van de list toe (enqueue aan de achterkant)
                 back.next = m;
                 back = m;
             }
@@ -37,32 +47,32 @@ public class Queue implements IMijnLijst {
     @Override
     public Muppet pop() {
 
-        Muppet moppie= null;
+        Muppet muppet= null;
 
-        if(start != null){
-            moppie = start;
-            start = start.next;
-            return moppie;
+        if(this.start != null){
+            // Verwijderd het eerste element van de list (Dequeue aan de voorkant)
+            muppet = this.start;
+            this.start = this.start.next;
         }
         else{
 
             System.err.println("Queue is leeg");
 
         }
-     return moppie;
+     return muppet;
     }
 
 
 
     @Override
     public int size() {
-        Muppet m = start;
-        // class flied
+        Muppet muppet = this.start;
+
         int size = 0;
-        while(m != null)
+        while(muppet != null)
             {
                 size++;
-                m = m.next;
+                muppet = muppet.next;
             }
         return size;
 
