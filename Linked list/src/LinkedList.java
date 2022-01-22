@@ -12,14 +12,14 @@ public class LinkedList {
         Muppet muppet = this.start;
         //Check als list leeg is
         if(muppet == null){
-            System.out.println("Linkedlist is leeg");
+            System.out.println("[-] Linkedlist is leeg");
         }else {
             System.out.println("=====================");
             System.out.println("     LINKEDLIST");
             System.out.println("=====================");
             // loop door de list heen en print muppet uit
             for (int i = 0; i < this.size(); i++) {
-                System.out.println(muppet);
+                System.out.println("[+] "+ muppet);
                 muppet = muppet.next;
             }
             System.out.println(this.size());
@@ -42,7 +42,7 @@ public class LinkedList {
 
             /*
              * push het muppet op de eerste positie van de list
-             * door de muppet te pointen naar de start en de start de muppet gelijk te maken aan het muppet
+             * door de muppet te pointen naar de start en de muppet wordt het nieuwe begint
              *  */
             if (p == 0) {
                 m.next = this.start;
@@ -71,10 +71,10 @@ public class LinkedList {
 
         // check voor valide index
         if ( p < 0 || p >= this.size()){
-            System.err.println("invalide position");
+            System.err.println("[-] ongeldig positie");
         }else {
 
-            //verwijderd eerste muppet uit de list als de index 0 is door de start te point naar de next muppet
+            //verwijderd eerste muppet uit de list als de index 0 is door de next muppet het begint te zijn
             if (p == 0) {
                 muppet = this.start;
                 this.start = temp.next;
@@ -82,13 +82,13 @@ public class LinkedList {
             } else {
                 /*
                  * loop door de list heen tot een muppet voor de gewenste positie en
-                 *point de next muppet op de next van de te verwijderen muppet
+                 * laat het muppet pointen op de next van te verwijderen muppet
                  */
                 for (int i = 0; temp != null && i < p - 1; i++) {
                     temp = temp.next;
                 }
                 if (temp == null || temp.next == null) {
-                    System.err.println("moppet not found");
+                    System.err.println("[-] moppet niet gevonden");
                 } else {
                     muppet = temp.next;
                     temp.next = temp.next.next;
@@ -109,11 +109,15 @@ public class LinkedList {
         
         if ( muppet != null && muppet.getNaam().equals(s)){
 
-            //System.out.println(muppet);
+            //verwijderd eerste muppet uit de list als de naam gelijk de naam van het  eerste muppet  door de next muppet het begint te zijn
             this.start = muppet.next;
         }
         else
             {
+                /*
+                 * loop door de list heen tot muppet naam gelijk zijn voor en
+                 * laat vorige muppet pointent op de next van het te verwijderen muppet
+                 */
                 while (muppet != null && !muppet.getNaam().equals(s))
                 {
                     next = muppet;
@@ -121,10 +125,9 @@ public class LinkedList {
 
                 }
                 if(muppet == null || next == null){
-                    System.err.println("moppet not found");
+                    System.err.println("[-] moppet niet gevonden");
                 }else {
                     next.next = muppet.next;
-                    //System.out.println(mZ);
 
                 }
 
@@ -139,10 +142,9 @@ public class LinkedList {
 
 
         Muppet temp = this.start;
-        Muppet muppet = null;
         
         if ( temp != null && temp.getNaam().equals(s)){
-            muppet = this.start;
+            System.out.println("[+] peek "+ temp);
         }
         else
             {
@@ -151,15 +153,14 @@ public class LinkedList {
                     temp = temp.next;
                 }  
                 if(temp == null ) {
-                    System.err.println("moppet not found");
+                    System.err.println("[-] moppet niet gevonden");
                 }else {
-                    muppet = temp;
-                    System.out.println(muppet);
+                    System.out.println("[+] peek "+ temp);
                 }
 
             }
 
-        return muppet;
+        return temp;
     }
 
     /**
@@ -169,32 +170,30 @@ public class LinkedList {
     public Muppet peek(int p){
 
         if ( p < 0 || p >= this.size()){
-            System.err.println("invalide position");
+            System.err.println("[-] ongeldig positie");
             return this.start;
         }
 
         Muppet temp = this.start;
-        Muppet muppet = null;
 
         if ( p == 0 ){
-            muppet = this.start;
+            System.out.println("[+] peek "+ temp);
         }
         else
             {
-                for ( int i = 0;temp != null && i<p-1;i++)
+                for ( int i = 0;temp != null && i<p;i++)
                 {
                       temp = temp.next;
                 }
                 if(temp == null || temp.next == null){
-                    System.err.println("muppet not found");
+                    System.err.println("[-] moppet niet gevonden");
                 }else {
-                    //assert temp != null;
-                    muppet = temp.next;
+                    System.out.println("[+] peek "+ temp);
                 }
                 
             }
-        System.out.println(muppet);
-        return muppet;
+
+        return temp;
     }
 
     /**

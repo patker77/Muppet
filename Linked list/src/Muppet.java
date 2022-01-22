@@ -1,6 +1,6 @@
 public class Muppet {
-    private final String naam;
-    private final int leeftijd;
+    private  String naam;
+    private  int leeftijd;
     public Muppet next = null;
 
     /**
@@ -17,8 +17,33 @@ public class Muppet {
      *
      * @return geeft de Muppet naam terug
      */
+
     public String getNaam() {
         return naam;
+    }
+
+    /**
+     *
+     * @param naam  set de naam van de Muppet
+     */
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    /**
+     *
+     * @return geeft de Muppet leeftijd terug
+     */
+    public int getLeeftijd() {
+        return leeftijd;
+    }
+
+    /**
+     *
+     * @param leeftijd  set het leeftijd van de Muppet
+     */
+    public void setLeeftijd(int leeftijd) {
+        this.leeftijd = leeftijd;
     }
 
     /**
@@ -27,7 +52,7 @@ public class Muppet {
      */
     @Override
     public String toString() {
-        return "Muppet{" +
+        return "{" +
                 "naam='" + naam + '\'' +
                 ", leeftijd=" + leeftijd +
                 '}';

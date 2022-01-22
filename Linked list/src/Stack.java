@@ -10,7 +10,7 @@ public class Stack implements IMijnLijst {
         //Check als list leeg is
         Muppet muppet = this.start;
         if(this.start == null){
-            System.out.println("stack is empty");
+            System.out.println("[-] Geen element in Stack");
             return;
         }
         System.out.println("=====================");
@@ -29,7 +29,7 @@ public class Stack implements IMijnLijst {
       public void push(Muppet m) {
          //Voeg het muppet aan het begint van de list toe als eerste element
         if(m == null){
-            System.err.println(" can't add to list");
+            System.err.println("[-] Stack -> kan niet toegevoegd worden");
         }else{
             m.next = this.start;
             this.start = m;
@@ -47,7 +47,7 @@ public class Stack implements IMijnLijst {
         }
         else{
           
-            System.err.println("stack is leeg");
+            System.err.println("[-] Stack -> kan niet meer verwijderen");
             
         }
      return muppet;
