@@ -12,7 +12,7 @@ public class LinkedList {
         Muppet muppet = this.start;
         //Check als list leeg is
         if(muppet == null){
-            System.out.println("[-] Linkedlist is leeg");
+            System.out.println("[-]Linkedlist -> list is leeg");
         }else {
             System.out.println("=====================");
             System.out.println("     LINKEDLIST");
@@ -36,8 +36,8 @@ public class LinkedList {
 
 
         // check voor valide index
-        if ( p < 0 || p > this.size()){
-            System.err.println("invalide position");
+        if ( p < 0 || p > this.size() || m == null){
+            System.err.println("[-]Linkedlist -> Muppet kan niet toegevoegd worden");
         }else {
 
             /*
@@ -71,7 +71,7 @@ public class LinkedList {
 
         // check voor valide index
         if ( p < 0 || p >= this.size()){
-            System.err.println("[-] ongeldig positie");
+            System.err.println("[-]Linkedliks -> ongeldig positie");
         }else {
 
             //verwijderd eerste muppet uit de list als de index 0 is door de next muppet het begint te zijn
@@ -88,7 +88,7 @@ public class LinkedList {
                     temp = temp.getNext();
                 }
                 if (temp == null || temp.getNext() == null) {
-                    System.err.println("[-] moppet niet gevonden");
+                    System.err.println("[-]LinkedList -> Muppet niet gevonden");
                 } else {
                     muppet = temp.getNext();
                     temp.setNext(temp.getNext().getNext());
@@ -106,7 +106,7 @@ public class LinkedList {
 
         Muppet muppet = this.start;
         Muppet next = null;
-        
+
         if ( muppet != null && muppet.getNaam().equals(s)){
 
             //verwijderd eerste muppet uit de list als de naam gelijk de naam van het  eerste muppet  door de next muppet het begint te zijn
@@ -125,7 +125,7 @@ public class LinkedList {
 
                 }
                 if(muppet == null || next == null){
-                    System.err.println("[-] moppet niet gevonden");
+                    System.err.println("[-]Linkedlist -> Muppet niet gevonden");
                 }else {
                     next.setNext(muppet.getNext());
 
@@ -144,7 +144,7 @@ public class LinkedList {
         Muppet temp = this.start;
         
         if ( temp != null && temp.getNaam().equals(s)){
-            System.out.println("[+] peek "+ temp);
+            System.out.println("[+]Linkedlist -> peek "+ temp);
         }
         else
             {
@@ -153,9 +153,9 @@ public class LinkedList {
                     temp = temp.getNext();
                 }  
                 if(temp == null ) {
-                    System.err.println("[-] moppet niet gevonden");
+                    System.err.println("[-]Linkedlist -> moppet niet gevonden");
                 }else {
-                    System.out.println("[+] peek "+ temp);
+                    System.out.println("[+]Linkedlist -> peek "+ temp);
                 }
 
             }
@@ -170,14 +170,14 @@ public class LinkedList {
     public Muppet peek(int p){
 
         if ( p < 0 || p >= this.size()){
-            System.err.println("[-] ongeldig positie");
+            System.err.println("[-]Linkedlist -> ongeldig positie");
             return this.start;
         }
 
         Muppet temp = this.start;
 
         if ( p == 0 ){
-            System.out.println("[+] peek "+ temp);
+            System.out.println("[+]Linkedlist -> peek "+ temp);
         }
         else
             {
@@ -186,9 +186,9 @@ public class LinkedList {
                       temp = temp.getNext();
                 }
                 if(temp == null || temp.getNext() == null){
-                    System.err.println("[-] moppet niet gevonden");
+                    System.err.println("[-]Linkedlist -> moppet niet gevonden");
                 }else {
-                    System.out.println("[+] peek "+ temp);
+                    System.out.println("[+]Linkedlist -> peek "+ temp);
                 }
                 
             }

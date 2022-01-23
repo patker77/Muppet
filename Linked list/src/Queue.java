@@ -11,7 +11,7 @@ public class Queue implements IMijnLijst {
         //Check als list leeg is
         Muppet muppet = this.start;
         if(this.start == null){
-            System.out.println("[-] Geen element in Queue");
+            System.out.println("[-]Queue -> Geen element in list");
             return;
         }
         System.out.println("=====================");
@@ -30,7 +30,7 @@ public class Queue implements IMijnLijst {
 
       public void push(Muppet m) {
           if(m == null){
-            System.err.println("[-] Queue -> kan niet toegevoegd worden");
+            System.err.println("[-]Queue -> kan niet toegevoegd worden");
         }else{
               //Voeg het muppet aan het als eerste element van de list toe zodra het list leeg is
             m.setNext(null);

@@ -54,7 +54,6 @@ public class App {
          */
 
         queueList.pop();
-
         queueList.push(linkedList.pop("Gonzo"));
         queueList.push(linkedList.pop("Miss Piggy"));
         queueList.push(linkedList.pop("Animal"));

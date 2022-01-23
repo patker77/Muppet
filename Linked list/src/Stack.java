@@ -10,7 +10,7 @@ public class Stack implements IMijnLijst {
         //Check als list leeg is
         Muppet muppet = this.start;
         if(this.start == null){
-            System.out.println("[-] Geen element in Stack");
+            System.out.println("[-]Stack ->  Geen element in list");
             return;
         }
         System.out.println("=====================");
