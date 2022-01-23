@@ -19,7 +19,7 @@ public class Stack implements IMijnLijst {
         // loop door de list heen en print muppet uit
         for(int i=0;i< this.size();i++){
          System.out.println("[+] "+muppet);
-         muppet = muppet.next;
+         muppet = muppet.getNext();
         }
         System.out.println(this.size());
      }
@@ -31,7 +31,7 @@ public class Stack implements IMijnLijst {
         if(m == null){
             System.err.println("[-] Stack -> kan niet toegevoegd worden");
         }else{
-            m.next = this.start;
+            m.setNext(this.start);
             this.start = m;
         }
     }
@@ -43,7 +43,7 @@ public class Stack implements IMijnLijst {
         // Verwijderd het eerste element van de list
         if(this.start != null){
             muppet = this.start;
-            this.start = this.start.next;
+            this.start = this.start.getNext();
         }
         else{
           
@@ -63,7 +63,7 @@ public class Stack implements IMijnLijst {
         while(muppet != null)
             {
                 size++;
-                muppet = muppet.next;
+                muppet = muppet.getNext();
             }
         return size;
         

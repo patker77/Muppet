@@ -20,7 +20,7 @@ public class Queue implements IMijnLijst {
         // loop door de list heen en print muppet uit
         for(int i=0;i< this.size();i++){
          System.out.println("[+] "+muppet);
-         muppet = muppet.next;
+         muppet = muppet.getNext();
         }
         System.out.println(this.size());
      }
@@ -33,13 +33,13 @@ public class Queue implements IMijnLijst {
             System.err.println("[-] Queue -> kan niet toegevoegd worden");
         }else{
               //Voeg het muppet aan het als eerste element van de list toe zodra het list leeg is
-            m.next = null;
+            m.setNext(null);
             //check als list leeg is? zo ja, zet het muppet als een en laste element
             if(this.start == null){
                 this.start = back = m;
             }else{
                 // Voeg het Muppet als laste element van de list toe (enqueue aan de achterkant)
-                back.next = m;
+                back.setNext(m);
                 back = m;
             }
         }
@@ -54,7 +54,7 @@ public class Queue implements IMijnLijst {
         if(this.start != null){
             // Verwijderd het eerste element van de list (Dequeue aan de voorkant)
             muppet = this.start;
-            this.start = this.start.next;
+            this.start = this.start.getNext();
         }
         else{
 
@@ -74,7 +74,7 @@ public class Queue implements IMijnLijst {
         while(muppet != null)
             {
                 size++;
-                muppet = muppet.next;
+                muppet = muppet.getNext();
             }
         return size;
 

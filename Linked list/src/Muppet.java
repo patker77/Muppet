@@ -1,7 +1,7 @@
 public class Muppet {
     private  String naam;
     private  int leeftijd;
-    public Muppet next = null;
+    private Muppet next = null;
 
     /**
      * Muppet Contructor
@@ -20,6 +20,22 @@ public class Muppet {
 
     public String getNaam() {
         return naam;
+    }
+
+    /**
+     *
+     * @return geeft de Muppet naam  van de next muppet terug
+     */
+    public Muppet getNext() {
+        return next;
+    }
+
+    /**
+     *
+     * @param next  set de Muppet naam van de volgende muppet
+     */
+    public void setNext(Muppet next) {
+        this.next = next;
     }
 
     /**
