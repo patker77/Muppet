@@ -18,7 +18,7 @@ public class Stack implements IMijnLijst {
         System.out.println("=====================");
         // loop door de list heen en print muppet uit
         for(int i=0;i< this.size();i++){
-         System.out.println(muppet);
+         System.out.println("[+] "+muppet);
          muppet = muppet.next;
         }
         System.out.println(this.size());

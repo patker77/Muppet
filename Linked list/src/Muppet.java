@@ -24,30 +24,6 @@ public class Muppet {
 
     /**
      *
-     * @param naam  set de naam van de Muppet
-     */
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    /**
-     *
-     * @return geeft de Muppet leeftijd terug
-     */
-    public int getLeeftijd() {
-        return leeftijd;
-    }
-
-    /**
-     *
-     * @param leeftijd  set het leeftijd van de Muppet
-     */
-    public void setLeeftijd(int leeftijd) {
-        this.leeftijd = leeftijd;
-    }
-
-    /**
-     *
      *@return  Geef de gegevens van de Muppet terug in een string formate
      */
     @Override
