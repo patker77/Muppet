@@ -4,7 +4,7 @@ public class Muppet {
     private Muppet next = null;
 
     /**
-     * Muppet Contructor
+     * Muppet Constructor
      * @param naam naam van de muppet
      * @param leeftijd leeftijd van de muppet
      */
